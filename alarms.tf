@@ -1,5 +1,5 @@
 resource "mongodbatlas_alert_configuration" "HOST_DOWN" {
-  count = var.ENABLE_ALARM_HOST_DOWN ? 1 : 0
+  count      = var.ENABLE_ALARM_HOST_DOWN ? 1 : 0
   project_id = var.PROJECT_ID
   event_type = "HOST_DOWN"
   enabled    = true
@@ -14,7 +14,7 @@ resource "mongodbatlas_alert_configuration" "HOST_DOWN" {
 }
 
 resource "mongodbatlas_alert_configuration" "HOST_HAS_INDEX_SUGGESTIONS" {
-  count = var.ENABLE_ALARM_HOST_HAS_INDEX_SUGGESTIONS ? 1 : 0
+  count      = var.ENABLE_ALARM_HOST_HAS_INDEX_SUGGESTIONS ? 1 : 0
   project_id = var.PROJECT_ID
   event_type = "HOST_HAS_INDEX_SUGGESTIONS"
   enabled    = true
@@ -29,7 +29,7 @@ resource "mongodbatlas_alert_configuration" "HOST_HAS_INDEX_SUGGESTIONS" {
 }
 
 resource "mongodbatlas_alert_configuration" "NORMALIZED_SYSTEM_CPU_USER" {
-  count = var.ENABLE_ALARM_NORMALIZED_SYSTEM_CPU_USER ? 1 : 0
+  count      = var.ENABLE_ALARM_NORMALIZED_SYSTEM_CPU_USER ? 1 : 0
   project_id = var.PROJECT_ID
   event_type = "OUTSIDE_METRIC_THRESHOLD"
   enabled    = true
@@ -52,7 +52,7 @@ resource "mongodbatlas_alert_configuration" "NORMALIZED_SYSTEM_CPU_USER" {
 }
 
 resource "mongodbatlas_alert_configuration" "NORMALIZED_SYSTEM_CPU_STEAL_90" {
-  count = var.ENABLE_ALARM_NORMALIZED_SYSTEM_CPU_STEAL_90 ? 1 : 0
+  count      = var.ENABLE_ALARM_NORMALIZED_SYSTEM_CPU_STEAL_90 ? 1 : 0
   project_id = var.PROJECT_ID
   event_type = "OUTSIDE_METRIC_THRESHOLD"
   enabled    = true
@@ -75,7 +75,7 @@ resource "mongodbatlas_alert_configuration" "NORMALIZED_SYSTEM_CPU_STEAL_90" {
 }
 
 resource "mongodbatlas_alert_configuration" "NORMALIZED_SYSTEM_CPU_STEAL_60" {
-  count = var.ENABLE_ALARM_NORMALIZED_SYSTEM_CPU_STEAL_60 ? 1 : 0
+  count      = var.ENABLE_ALARM_NORMALIZED_SYSTEM_CPU_STEAL_60 ? 1 : 0
   project_id = var.PROJECT_ID
   event_type = "OUTSIDE_METRIC_THRESHOLD"
   enabled    = true
@@ -99,7 +99,7 @@ resource "mongodbatlas_alert_configuration" "NORMALIZED_SYSTEM_CPU_STEAL_60" {
 
 
 resource "mongodbatlas_alert_configuration" "QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED" {
-  count = var.ENABLE_ALARM_QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED ? 1 : 0
+  count      = var.ENABLE_ALARM_QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED ? 1 : 0
   project_id = var.PROJECT_ID
   event_type = "OUTSIDE_METRIC_THRESHOLD"
   enabled    = true
@@ -122,7 +122,7 @@ resource "mongodbatlas_alert_configuration" "QUERY_TARGETING_SCANNED_OBJECTS_PER
 }
 
 resource "mongodbatlas_alert_configuration" "DISK_PARTITION_SPACE_USED_DATA" {
-  count = var.ENABLE_ALARM_DISK_PARTITION_SPACE_USED_DATA ? 1 : 0
+  count      = var.ENABLE_ALARM_DISK_PARTITION_SPACE_USED_DATA ? 1 : 0
   project_id = var.PROJECT_ID
   event_type = "OUTSIDE_METRIC_THRESHOLD"
   enabled    = true
@@ -145,7 +145,7 @@ resource "mongodbatlas_alert_configuration" "DISK_PARTITION_SPACE_USED_DATA" {
 }
 
 resource "mongodbatlas_alert_configuration" "DISK_PARTITION_UTILIZATION_DATA" {
-  count = var.ENABLE_ALARM_DISK_PARTITION_UTILIZATION_DATA ? 1 : 0
+  count      = var.ENABLE_ALARM_DISK_PARTITION_UTILIZATION_DATA ? 1 : 0
   project_id = var.PROJECT_ID
   event_type = "OUTSIDE_METRIC_THRESHOLD"
   enabled    = true
@@ -168,7 +168,7 @@ resource "mongodbatlas_alert_configuration" "DISK_PARTITION_UTILIZATION_DATA" {
 }
 
 resource "mongodbatlas_alert_configuration" "REPLICATION_OPLOG_WINDOW_RUNNING_OUT" {
-  count = var.ENABLE_ALARM_REPLICATION_OPLOG_WINDOW_RUNNING_OUT ? 1 : 0
+  count      = var.ENABLE_ALARM_REPLICATION_OPLOG_WINDOW_RUNNING_OUT ? 1 : 0
   project_id = var.PROJECT_ID
   event_type = "REPLICATION_OPLOG_WINDOW_RUNNING_OUT"
   enabled    = true
@@ -182,14 +182,14 @@ resource "mongodbatlas_alert_configuration" "REPLICATION_OPLOG_WINDOW_RUNNING_OU
   }
 
   threshold = {
-    operator    = "LESS_THAN"
-    threshold   = 1
-    units       = "HOURS"
+    operator  = "LESS_THAN"
+    threshold = 1
+    units     = "HOURS"
   }
 }
 
 resource "mongodbatlas_alert_configuration" "CONNECTIONS_PERCENT" {
-  count = var.ENABLE_ALARM_CONNECTIONS_PERCENT ? 1 : 0
+  count      = var.ENABLE_ALARM_CONNECTIONS_PERCENT ? 1 : 0
   project_id = var.PROJECT_ID
   event_type = "OUTSIDE_METRIC_THRESHOLD"
   enabled    = true
@@ -212,7 +212,7 @@ resource "mongodbatlas_alert_configuration" "CONNECTIONS_PERCENT" {
 }
 
 resource "mongodbatlas_alert_configuration" "CREDIT_CARD_ABOUT_TO_EXPIRE" {
-  count = var.ENABLE_ALARM_CREDIT_CARD_ABOUT_TO_EXPIRE ? 1 : 0
+  count      = var.ENABLE_ALARM_CREDIT_CARD_ABOUT_TO_EXPIRE ? 1 : 0
   project_id = var.PROJECT_ID
   event_type = "CREDIT_CARD_ABOUT_TO_EXPIRE"
   enabled    = true
@@ -227,7 +227,7 @@ resource "mongodbatlas_alert_configuration" "CREDIT_CARD_ABOUT_TO_EXPIRE" {
 }
 
 resource "mongodbatlas_alert_configuration" "NO_PRIMARY" {
-  count = var.ENABLE_ALARM_NO_PRIMARY ? 1 : 0
+  count      = var.ENABLE_ALARM_NO_PRIMARY ? 1 : 0
   project_id = var.PROJECT_ID
   event_type = "NO_PRIMARY"
   enabled    = true
@@ -242,7 +242,7 @@ resource "mongodbatlas_alert_configuration" "NO_PRIMARY" {
 }
 
 resource "mongodbatlas_alert_configuration" "CLUSTER_MONGOS_IS_MISSING" {
-  count = var.ENABLE_ALARM_CLUSTER_MONGOS_IS_MISSING ? 1 : 0
+  count      = var.ENABLE_ALARM_CLUSTER_MONGOS_IS_MISSING ? 1 : 0
   project_id = var.PROJECT_ID
   event_type = "CLUSTER_MONGOS_IS_MISSING"
   enabled    = true
