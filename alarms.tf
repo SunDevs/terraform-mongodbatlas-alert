@@ -68,7 +68,7 @@ resource "mongodbatlas_alert_configuration" "NORMALIZED_SYSTEM_CPU_STEAL_90" {
   metric_threshold = {
     metric_name = "NORMALIZED_SYSTEM_CPU_STEAL"
     operator    = "GREATER_THAN"
-    threshold   = 50
+    threshold   = 90
     units       = "RAW"
     mode        = "AVERAGE"
   }
