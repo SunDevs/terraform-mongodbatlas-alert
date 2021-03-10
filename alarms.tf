@@ -5,9 +5,9 @@ resource "mongodbatlas_alert_configuration" "HOST_DOWN" {
   enabled    = true
 
   notification {
-    type_name     = var.NOTIFICATION
-    interval_min  = 5
-    delay_min     = 0
+    type_name     = var.HOST_DOWN.NOTIFICATION
+    interval_min  = var.HOST_DOWN.INTERVAL_MIN
+    delay_min     = var.HOST_DOWN.DELAY_MIN
     sms_enabled   = false
     email_enabled = false
   }
@@ -20,9 +20,9 @@ resource "mongodbatlas_alert_configuration" "HOST_HAS_INDEX_SUGGESTIONS" {
   enabled    = true
 
   notification {
-    type_name     = var.NOTIFICATION
-    interval_min  = 5
-    delay_min     = 0
+    type_name     = var.HOST_HAS_INDEX_SUGGESTIONS.NOTIFICATION
+    interval_min  = var.HOST_HAS_INDEX_SUGGESTIONS.INTERVAL_MIN
+    delay_min     = var.HOST_HAS_INDEX_SUGGESTIONS.DELAY_MIN
     sms_enabled   = false
     email_enabled = false
   }

@@ -25,10 +25,30 @@ variable "ENABLE_ALARM_HOST_DOWN" {
   description = "Enable alarm when your host is down"
 }
 
+variable "HOST_DOWN" {
+  type        = map(string)
+  description = "Configure alarm HOST_DOWN"
+  default = {
+    INTERVAL_MIN = "15"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+  }
+}
+
 variable "ENABLE_ALARM_HOST_HAS_INDEX_SUGGESTIONS" {
   type        = bool
   default     = true
   description = "Enable alarm when your host has index suggestions"
+}
+
+variable "HOST_HAS_INDEX_SUGGESTIONS" {
+  type        = map(string)
+  description = "Configure alarm HOST_HAS_INDEX_SUGGESTIONS"
+  default = {
+    INTERVAL_MIN = "15"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+  }
 }
 
 variable "ENABLE_ALARM_NORMALIZED_SYSTEM_CPU_USER" {
