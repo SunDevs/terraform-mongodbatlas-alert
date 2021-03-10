@@ -35,19 +35,19 @@ resource "mongodbatlas_alert_configuration" "NORMALIZED_SYSTEM_CPU_USER" {
   enabled    = true
 
   notification {
-    type_name     = var.NOTIFICATION
-    interval_min  = 60
-    delay_min     = 0
+    type_name     = var.NORMALIZED_SYSTEM_CPU_USER.NOTIFICATION
+    interval_min  = var.NORMALIZED_SYSTEM_CPU_USER.INTERVAL_MIN
+    delay_min     = var.NORMALIZED_SYSTEM_CPU_USER.DELAY_MIN
     sms_enabled   = false
     email_enabled = false
   }
 
   metric_threshold = {
     metric_name = "NORMALIZED_SYSTEM_CPU_USER"
-    operator    = "GREATER_THAN"
-    threshold   = 90
-    units       = "RAW"
-    mode        = "AVERAGE"
+    operator    = var.NORMALIZED_SYSTEM_CPU_USER.OPERATOR
+    threshold   = var.NORMALIZED_SYSTEM_CPU_USER.THRESHOLD
+    units       = var.NORMALIZED_SYSTEM_CPU_USER.UNITS
+    mode        = var.NORMALIZED_SYSTEM_CPU_USER.MODE
   }
 }
 
@@ -58,19 +58,19 @@ resource "mongodbatlas_alert_configuration" "NORMALIZED_SYSTEM_CPU_STEAL_90" {
   enabled    = true
 
   notification {
-    type_name     = var.NOTIFICATION
-    interval_min  = 60
-    delay_min     = 0
+    type_name     = var.NORMALIZED_SYSTEM_CPU_STEAL_90.NOTIFICATION
+    interval_min  = var.NORMALIZED_SYSTEM_CPU_STEAL_90.INTERVAL_MIN
+    delay_min     = var.NORMALIZED_SYSTEM_CPU_STEAL_90.DELAY_MIN
     sms_enabled   = false
     email_enabled = false
   }
 
   metric_threshold = {
     metric_name = "NORMALIZED_SYSTEM_CPU_STEAL"
-    operator    = "GREATER_THAN"
-    threshold   = 90
-    units       = "RAW"
-    mode        = "AVERAGE"
+    operator    = var.NORMALIZED_SYSTEM_CPU_STEAL_90.OPERATOR
+    threshold   = var.NORMALIZED_SYSTEM_CPU_STEAL_90.THRESHOLD
+    units       = var.NORMALIZED_SYSTEM_CPU_STEAL_90.UNITS
+    mode        = var.NORMALIZED_SYSTEM_CPU_STEAL_90.MODE
   }
 }
 
@@ -81,22 +81,21 @@ resource "mongodbatlas_alert_configuration" "NORMALIZED_SYSTEM_CPU_STEAL_60" {
   enabled    = true
 
   notification {
-    type_name     = var.NOTIFICATION
-    interval_min  = 60
-    delay_min     = 0
+    type_name     = var.NORMALIZED_SYSTEM_CPU_STEAL_60.NOTIFICATION
+    interval_min  = var.NORMALIZED_SYSTEM_CPU_STEAL_60.INTERVAL_MIN
+    delay_min     = var.NORMALIZED_SYSTEM_CPU_STEAL_60.DELAY_MIN
     sms_enabled   = false
     email_enabled = false
   }
 
   metric_threshold = {
     metric_name = "NORMALIZED_SYSTEM_CPU_STEAL"
-    operator    = "GREATER_THAN"
-    threshold   = 50
-    units       = "RAW"
-    mode        = "AVERAGE"
+    operator    = var.NORMALIZED_SYSTEM_CPU_STEAL_60.OPERATOR
+    threshold   = var.NORMALIZED_SYSTEM_CPU_STEAL_60.THRESHOLD 
+    units       = var.NORMALIZED_SYSTEM_CPU_STEAL_60.UNITS
+    mode        = var.NORMALIZED_SYSTEM_CPU_STEAL_60.MODE
   }
 }
-
 
 resource "mongodbatlas_alert_configuration" "QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED" {
   count      = var.ENABLE_ALARM_QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED ? 1 : 0
@@ -105,19 +104,19 @@ resource "mongodbatlas_alert_configuration" "QUERY_TARGETING_SCANNED_OBJECTS_PER
   enabled    = true
 
   notification {
-    type_name     = var.NOTIFICATION
-    interval_min  = 60
-    delay_min     = 0
+    type_name     = var.QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED.NOTIFICATION
+    interval_min  = var.QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED.INTERVAL_MIN
+    delay_min     = var.QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED.DELAY_MIN
     sms_enabled   = false
     email_enabled = false
   }
 
   metric_threshold = {
     metric_name = "QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED"
-    operator    = "GREATER_THAN"
-    threshold   = 1000
-    units       = "RAW"
-    mode        = "AVERAGE"
+    operator    = var.QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED.OPERATOR
+    threshold   = var.QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED.THRESHOLD 
+    units       = var.QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED.UNITS
+    mode        = var.QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED.MODE
   }
 }
 
@@ -128,19 +127,19 @@ resource "mongodbatlas_alert_configuration" "DISK_PARTITION_SPACE_USED_DATA" {
   enabled    = true
 
   notification {
-    type_name     = var.NOTIFICATION
-    interval_min  = 60
-    delay_min     = 0
+    type_name     = var.DISK_PARTITION_SPACE_USED_DATA.NOTIFICATION
+    interval_min  = var.DISK_PARTITION_SPACE_USED_DATA.INTERVAL_MIN
+    delay_min     = var.DISK_PARTITION_SPACE_USED_DATA.DELAY_MIN
     sms_enabled   = false
     email_enabled = false
   }
 
   metric_threshold = {
     metric_name = "DISK_PARTITION_SPACE_USED_DATA"
-    operator    = "GREATER_THAN"
-    threshold   = 90
-    units       = "RAW"
-    mode        = "AVERAGE"
+    operator    = var.DISK_PARTITION_SPACE_USED_DATA.OPERATOR
+    threshold   = var.DISK_PARTITION_SPACE_USED_DATA.THRESHOLD
+    units       = var.DISK_PARTITION_SPACE_USED_DATA.UNITS
+    mode        = var.DISK_PARTITION_SPACE_USED_DATA.MODE
   }
 }
 

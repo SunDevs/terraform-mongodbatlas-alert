@@ -27,7 +27,7 @@ variable "ENABLE_ALARM_HOST_DOWN" {
 
 variable "HOST_DOWN" {
   type        = map(string)
-  description = "Configure alarm HOST_DOWN"
+  description = "HOST_DOWN  alarm settings."
   default = {
     INTERVAL_MIN = "15"
     DELAY_MIN    = "0"
@@ -43,7 +43,7 @@ variable "ENABLE_ALARM_HOST_HAS_INDEX_SUGGESTIONS" {
 
 variable "HOST_HAS_INDEX_SUGGESTIONS" {
   type        = map(string)
-  description = "Configure alarm HOST_HAS_INDEX_SUGGESTIONS"
+  description = "HOST_HAS_INDEX_SUGGESTIONS alarm settings."
   default = {
     INTERVAL_MIN = "15"
     DELAY_MIN    = "0"
@@ -57,10 +57,40 @@ variable "ENABLE_ALARM_NORMALIZED_SYSTEM_CPU_USER" {
   description = "Enable alarm when CPU usage of processes on the host server is above a threshold, scaled to a range of 0-100% by dividing by the number of CPU cores."
 }
 
+variable "NORMALIZED_SYSTEM_CPU_USER" {
+  type        = map(string)
+  description = "NORMALIZED_SYSTEM_CPU_USER alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+    OPERATOR     = "GREATER_THAN"
+    THRESHOLD    = 90
+    UNITS        = "RAW"
+    MODE         = "AVERAGE"
+
+  }
+}
+
 variable "ENABLE_ALARM_NORMALIZED_SYSTEM_CPU_STEAL_90" {
   type        = bool
   default     = true
   description = "Enable alarm when CPU usage of processes on the host server is above a threshold, scaled to a range of 0-100% by dividing by the number of CPU cores."
+}
+
+variable "NORMALIZED_SYSTEM_CPU_STEAL_90" {
+  type        = map(string)
+  description = "NORMALIZED_SYSTEM_CPU_STEAL_90 alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+    OPERATOR     = "GREATER_THAN"
+    THRESHOLD    = 90
+    UNITS        = "RAW"
+    MODE         = "AVERAGE"
+
+  }
 }
 
 variable "ENABLE_ALARM_NORMALIZED_SYSTEM_CPU_STEAL_60" {
@@ -69,16 +99,61 @@ variable "ENABLE_ALARM_NORMALIZED_SYSTEM_CPU_STEAL_60" {
   description = "Enable alarm when CPU usage of processes on the host server is above a threshold, scaled to a range of 0-100% by dividing by the number of CPU cores."
 }
 
+variable "NORMALIZED_SYSTEM_CPU_STEAL_60" {
+  type        = map(string)
+  description = "NORMALIZED_SYSTEM_CPU_STEAL_60 alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+    OPERATOR     = "GREATER_THAN"
+    THRESHOLD    = 60
+    UNITS        = "RAW"
+    MODE         = "AVERAGE"
+
+  }
+}
+
 variable "ENABLE_ALARM_QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED" {
   type        = bool
   default     = true
   description = "Enable alarm when metric QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED is above a threshold, ratio of the number of documents scanned to the number of documents returned"
 }
 
+variable "QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED" {
+  type        = map(string)
+  description = "QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+    OPERATOR     = "GREATER_THAN"
+    THRESHOLD    = 1000
+    UNITS        = "RAW"
+    MODE         = "AVERAGE"
+
+  }
+}
+
 variable "ENABLE_ALARM_DISK_PARTITION_SPACE_USED_DATA" {
   type        = bool
   default     = true
   description = "Enable alarm when metric DISK_PARTITION_SPACE_USED_DATA is above a threshold, measurements on the amount of disk space used on partitions containing different types of MongoDB data."
+}
+
+variable "DISK_PARTITION_SPACE_USED_DATA" {
+  type        = map(string)
+  description = "DISK_PARTITION_SPACE_USED_DATA alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+    OPERATOR     = "GREATER_THAN"
+    THRESHOLD    = 90
+    UNITS        = "RAW"
+    MODE         = "AVERAGE"
+
+  }
 }
 
 variable "ENABLE_ALARM_DISK_PARTITION_UTILIZATION_DATA" {
