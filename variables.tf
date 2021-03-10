@@ -25,10 +25,30 @@ variable "ENABLE_ALARM_HOST_DOWN" {
   description = "Enable alarm when your host is down"
 }
 
+variable "HOST_DOWN" {
+  type        = map(string)
+  description = "HOST_DOWN  alarm settings."
+  default = {
+    INTERVAL_MIN = "15"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+  }
+}
+
 variable "ENABLE_ALARM_HOST_HAS_INDEX_SUGGESTIONS" {
   type        = bool
   default     = true
   description = "Enable alarm when your host has index suggestions"
+}
+
+variable "HOST_HAS_INDEX_SUGGESTIONS" {
+  type        = map(string)
+  description = "HOST_HAS_INDEX_SUGGESTIONS alarm settings."
+  default = {
+    INTERVAL_MIN = "15"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+  }
 }
 
 variable "ENABLE_ALARM_NORMALIZED_SYSTEM_CPU_USER" {
@@ -37,10 +57,40 @@ variable "ENABLE_ALARM_NORMALIZED_SYSTEM_CPU_USER" {
   description = "Enable alarm when CPU usage of processes on the host server is above a threshold, scaled to a range of 0-100% by dividing by the number of CPU cores."
 }
 
+variable "NORMALIZED_SYSTEM_CPU_USER" {
+  type        = map(string)
+  description = "NORMALIZED_SYSTEM_CPU_USER alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+    OPERATOR     = "GREATER_THAN"
+    THRESHOLD    = 90
+    UNITS        = "RAW"
+    MODE         = "AVERAGE"
+
+  }
+}
+
 variable "ENABLE_ALARM_NORMALIZED_SYSTEM_CPU_STEAL_90" {
   type        = bool
   default     = true
   description = "Enable alarm when CPU usage of processes on the host server is above a threshold, scaled to a range of 0-100% by dividing by the number of CPU cores."
+}
+
+variable "NORMALIZED_SYSTEM_CPU_STEAL_90" {
+  type        = map(string)
+  description = "NORMALIZED_SYSTEM_CPU_STEAL_90 alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+    OPERATOR     = "GREATER_THAN"
+    THRESHOLD    = 90
+    UNITS        = "RAW"
+    MODE         = "AVERAGE"
+
+  }
 }
 
 variable "ENABLE_ALARM_NORMALIZED_SYSTEM_CPU_STEAL_60" {
@@ -49,10 +99,40 @@ variable "ENABLE_ALARM_NORMALIZED_SYSTEM_CPU_STEAL_60" {
   description = "Enable alarm when CPU usage of processes on the host server is above a threshold, scaled to a range of 0-100% by dividing by the number of CPU cores."
 }
 
+variable "NORMALIZED_SYSTEM_CPU_STEAL_60" {
+  type        = map(string)
+  description = "NORMALIZED_SYSTEM_CPU_STEAL_60 alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+    OPERATOR     = "GREATER_THAN"
+    THRESHOLD    = 60
+    UNITS        = "RAW"
+    MODE         = "AVERAGE"
+
+  }
+}
+
 variable "ENABLE_ALARM_QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED" {
   type        = bool
   default     = true
   description = "Enable alarm when metric QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED is above a threshold, ratio of the number of documents scanned to the number of documents returned"
+}
+
+variable "QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED" {
+  type        = map(string)
+  description = "QUERY_TARGETING_SCANNED_OBJECTS_PER_RETURNED alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+    OPERATOR     = "GREATER_THAN"
+    THRESHOLD    = 1000
+    UNITS        = "RAW"
+    MODE         = "AVERAGE"
+
+  }
 }
 
 variable "ENABLE_ALARM_DISK_PARTITION_SPACE_USED_DATA" {
@@ -61,10 +141,39 @@ variable "ENABLE_ALARM_DISK_PARTITION_SPACE_USED_DATA" {
   description = "Enable alarm when metric DISK_PARTITION_SPACE_USED_DATA is above a threshold, measurements on the amount of disk space used on partitions containing different types of MongoDB data."
 }
 
+variable "DISK_PARTITION_SPACE_USED_DATA" {
+  type        = map(string)
+  description = "DISK_PARTITION_SPACE_USED_DATA alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+    OPERATOR     = "GREATER_THAN"
+    THRESHOLD    = 90
+    UNITS        = "RAW"
+    MODE         = "AVERAGE"
+
+  }
+}
+
 variable "ENABLE_ALARM_DISK_PARTITION_UTILIZATION_DATA" {
   type        = bool
   default     = true
   description = "Enable alarm when metric DISK_PARTITION_SPACE_USED_DATA is above a threshold, measurements on the amount of disk space used on partitions containing different types of MongoDB data."
+}
+
+variable "DISK_PARTITION_UTILIZATION_DATA" {
+  type        = map(string)
+  description = "DISK_PARTITION_UTILIZATION_DATA alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+    OPERATOR     = "GREATER_THAN"
+    THRESHOLD    = 90
+    UNITS        = "RAW"
+    MODE         = "AVERAGE"
+  }
 }
 
 variable "ENABLE_ALARM_REPLICATION_OPLOG_WINDOW_RUNNING_OUT" {
@@ -73,10 +182,37 @@ variable "ENABLE_ALARM_REPLICATION_OPLOG_WINDOW_RUNNING_OUT" {
   description = "Enable alarm when metric REPLICATION_OPLOG_WINDOW_RUNNING_OUT is above a threshold."
 }
 
+variable "REPLICATION_OPLOG_WINDOW_RUNNING_OUT" {
+  type        = map(string)
+  description = "REPLICATION_OPLOG_WINDOW_RUNNING_OUT alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+    OPERATOR     = "GREATER_THAN"
+    THRESHOLD    = 1
+    UNITS        = "HOURS"
+  }
+}
+
 variable "ENABLE_ALARM_CONNECTIONS_PERCENT" {
   type        = bool
   default     = true
   description = "Enable alarm when metric CONNECTIONS_PERCENT is above a threshold. Measures connections to a MongoDB process."
+}
+
+variable "CONNECTIONS_PERCENT" {
+  type        = map(string)
+  description = "CONNECTIONS_PERCENT alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+    OPERATOR     = "GREATER_THAN"
+    THRESHOLD    = 80
+    UNITS        = "RAW"
+    MODE         = "AVERAGE"
+  }
 }
 
 variable "ENABLE_ALARM_CREDIT_CARD_ABOUT_TO_EXPIRE" {
@@ -85,10 +221,30 @@ variable "ENABLE_ALARM_CREDIT_CARD_ABOUT_TO_EXPIRE" {
   description = "Enable alarm when credit card is about to expire."
 }
 
+variable "CREDIT_CARD_ABOUT_TO_EXPIRE" {
+  type        = map(string)
+  description = "CREDIT_CARD_ABOUT_TO_EXPIRE  alarm settings."
+  default = {
+    INTERVAL_MIN = "1440"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+  }
+}
+
 variable "ENABLE_ALARM_NO_PRIMARY" {
   type        = bool
   default     = true
   description = "Enable alarm when replica set has no primary."
+}
+
+variable "NO_PRIMARY" {
+  type        = map(string)
+  description = "NO_PRIMARY  alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "15"
+    NOTIFICATION = "WEBHOOK"
+  }
 }
 
 variable "ENABLE_ALARM_CLUSTER_MONGOS_IS_MISSING" {
@@ -97,3 +253,12 @@ variable "ENABLE_ALARM_CLUSTER_MONGOS_IS_MISSING" {
   description = "Enable alarm when cluster is missing an active mongos."
 }
 
+variable "CLUSTER_MONGOS_IS_MISSING" {
+  type        = map(string)
+  description = "CLUSTER_MONGOS_IS_MISSING  alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "15"
+    NOTIFICATION = "WEBHOOK"
+  }
+}
