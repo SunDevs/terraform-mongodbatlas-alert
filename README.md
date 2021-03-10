@@ -25,16 +25,7 @@ module "name-module" {
 }
 ```
 
-**Example 1** Use all default settings
-
-```bash
-module "name-module" {
-  source     = "SunDevs/alert/mongodbatlas"
-  PROJECT_ID = var.PROJECT_ID
-}
-```
-
-**Example 2** Customize some settings
+**Example 2** Customize settings
 
 ```bash
 module "name-module" {
