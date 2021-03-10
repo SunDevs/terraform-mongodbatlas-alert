@@ -162,10 +162,37 @@ variable "ENABLE_ALARM_DISK_PARTITION_UTILIZATION_DATA" {
   description = "Enable alarm when metric DISK_PARTITION_SPACE_USED_DATA is above a threshold, measurements on the amount of disk space used on partitions containing different types of MongoDB data."
 }
 
+variable "DISK_PARTITION_UTILIZATION_DATA" {
+  type        = map(string)
+  description = "DISK_PARTITION_UTILIZATION_DATA alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+    OPERATOR     = "GREATER_THAN"
+    THRESHOLD    = 90
+    UNITS        = "RAW"
+    MODE         = "AVERAGE"
+  }
+}
+
 variable "ENABLE_ALARM_REPLICATION_OPLOG_WINDOW_RUNNING_OUT" {
   type        = bool
   default     = true
   description = "Enable alarm when metric REPLICATION_OPLOG_WINDOW_RUNNING_OUT is above a threshold."
+}
+
+variable "REPLICATION_OPLOG_WINDOW_RUNNING_OUT" {
+  type        = map(string)
+  description = "REPLICATION_OPLOG_WINDOW_RUNNING_OUT alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+    OPERATOR     = "GREATER_THAN"
+    THRESHOLD    = 1
+    UNITS        = "HOURS"
+  }
 }
 
 variable "ENABLE_ALARM_CONNECTIONS_PERCENT" {
@@ -174,10 +201,34 @@ variable "ENABLE_ALARM_CONNECTIONS_PERCENT" {
   description = "Enable alarm when metric CONNECTIONS_PERCENT is above a threshold. Measures connections to a MongoDB process."
 }
 
+variable "CONNECTIONS_PERCENT" {
+  type        = map(string)
+  description = "CONNECTIONS_PERCENT alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+    OPERATOR     = "GREATER_THAN"
+    THRESHOLD    = 80
+    UNITS        = "RAW"
+    MODE         = "AVERAGE"
+  }
+}
+
 variable "ENABLE_ALARM_CREDIT_CARD_ABOUT_TO_EXPIRE" {
   type        = bool
   default     = true
   description = "Enable alarm when credit card is about to expire."
+}
+
+variable "CREDIT_CARD_ABOUT_TO_EXPIRE" {
+  type        = map(string)
+  description = "CREDIT_CARD_ABOUT_TO_EXPIRE  alarm settings."
+  default = {
+    INTERVAL_MIN = "1440"
+    DELAY_MIN    = "0"
+    NOTIFICATION = "WEBHOOK"
+  }
 }
 
 variable "ENABLE_ALARM_NO_PRIMARY" {
@@ -186,9 +237,28 @@ variable "ENABLE_ALARM_NO_PRIMARY" {
   description = "Enable alarm when replica set has no primary."
 }
 
+variable "NO_PRIMARY" {
+  type        = map(string)
+  description = "NO_PRIMARY  alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "15"
+    NOTIFICATION = "WEBHOOK"
+  }
+}
+
 variable "ENABLE_ALARM_CLUSTER_MONGOS_IS_MISSING" {
   type        = bool
   default     = true
   description = "Enable alarm when cluster is missing an active mongos."
 }
 
+variable "CLUSTER_MONGOS_IS_MISSING" {
+  type        = map(string)
+  description = "CLUSTER_MONGOS_IS_MISSING  alarm settings."
+  default = {
+    INTERVAL_MIN = "60"
+    DELAY_MIN    = "15"
+    NOTIFICATION = "WEBHOOK"
+  }
+}
